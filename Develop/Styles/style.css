@@ -1,3 +1,7 @@
 .question-one {
     display: none;
 }
+
+.main-section {
+    display: block;
+}
