@@ -1,7 +1,15 @@
+.main-section {
+    display: block;
+}
+
 .question-one {
     display: none;
 }
 
-.main-section {
-    display: block;
+.question-two {
+    display: none;
+}
+
+.question-three {
+    display: none;
 }
