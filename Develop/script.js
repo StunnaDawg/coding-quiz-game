@@ -13,6 +13,8 @@ button.addEventListener('click', function() {
     let randomQuestion = array[randomIndex];
     randomQuestion.style.display = "block";
     mainSection.style.display = "none";
+    const [startQuestion] = array.splice(randomIndex, 1);
+    startQuestion;
 })
 
 function countdown() {
@@ -30,34 +32,37 @@ function countdown() {
 
 // This section makes sure the questions cycle through each other
 
-const questionOneButton = document.querySelector('.question-one-button');
-const questionTwoButton = document.querySelector('.question-two-button');
-const questionThreeButton = document.querySelector('.question-three-button');
+const questionOneButtons = document.querySelectorAll('.question-one-button'); // all selector chooses every button
+const questionTwoButtons = document.querySelectorAll('.question-two-button');
+const questionThreeButtons = document.querySelectorAll('.question-three-button');
 
-questionOneButton.addEventListener('click', function() {
-    let randomIndex = [Math.floor(Math.random() * array.length)];
+function changeQuestion(currentQuestion) {
+    let randomIndex = Math.floor(Math.random() * array.length);
     let randomQuestion = array[randomIndex];
     randomQuestion.style.display = 'block';
-    questionOne.style.display = 'none';
-}, {once : true});
+    currentQuestion.style.display = 'none';
+    const [questionArray] = array.splice(randomIndex, 1);
+    questionArray;
+    console.log(array)
+}
 
-questionTwoButton.addEventListener('click', function() {
-    let randomIndex = [Math.floor(Math.random() * array.length)];
-    let randomQuestion = array[randomIndex];
-    randomQuestion.style.display = 'block';
-    questionTwo.style.display = 'none';
-    
-}, {once : true});
+questionOneButtons.forEach(function(questionOneButtons) {
+    questionOneButtons.addEventListener('click', function() {
+        changeQuestion(questionOne);
+    }, {once : true});
+});
 
-questionThreeButton.addEventListener('click', function() {
-    let randomIndex = [Math.floor(Math.random() * array.length)];
-    let randomQuestion = array[randomIndex];
-    randomQuestion.style.display = 'block';
-    questionThree.style.display = 'none';
-    
-}, {once : true});
+questionTwoButtons.forEach(function(questionTwoButtons) {
+    questionTwoButtons.addEventListener('click', function() {
+        changeQuestion(questionTwo);
+    }, {once : true});
+});
 
-
+questionThreeButtons.forEach(function(questionThreeButtons) {
+    questionThreeButtons.addEventListener('click', function() {
+        changeQuestion(questionThree);
+    }, {once : true});
+});
 
 
 
