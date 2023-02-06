@@ -11,9 +11,10 @@
     <section class="container">
         <header>
             <h3>High Score:</h3>
-            <h3>Time Left:</h3>
+            <h3 id="timer">Time Left:</h3>
         </header>
-        <section class="main-section">
+<main>  
+    <section class="main-section">
             <h1>Coding Quiz Challenge</h1>
             <p>Answer the following questions as fast as POSSIBLE! <br>
                 Every question wrong is 10 seconds off the clock. <br>
@@ -22,32 +23,35 @@
             </p>
             <button id="start">Start</button>
         </section>
+    <section class="questions">
         <section class="question-one">
             <h1>How do you log 'hello world' to the console in JavaScript?</h1>
             <ul>
-                <li><button>console.log('hello world')</button></li>
-                <li><button>print('hello world')</button></li>
-                <li><button>printf("hello world")</button></li>
-                <li><button>System.out.println("hello world");</button></li>
+                <li><button class="question-button">console.log('hello world')</button></li>
+                <li><button class="question-button">print('hello world')</button></li>
+                <li><button class="question-button">printf("hello world")</button></li>
+                <li><button class="question-button">System.out.println("hello world");</button></li>
             </ul>
         </section>
         <section class="question-two">
             <h1>What does CSS stand for?</h1>
             <ul>
-                <li><button>Cat Sipping Soup</button></li>
-                <li><button>Cascading Style Sheet</button></li>
-                <li><button>Cows Spicy Salsa</button></li>
-                <li><button>Crocodile Stream Sniping</button></li>
+                <li><button class="question-button">Cat Sipping Soup</button></li>
+                <li><button class="question-button">Cascading Style Sheet</button></li>
+                <li><button class="question-button">Cows Spicy Salsa</button></li>
+                <li><button class="question-button">Crocodile Stream Sniping</button></li>
             </ul>
         </section>
         <section class="question-three">
             <h1>How many Elements can fit into an array</h1>
-            <li><button>Probably a lot</button></li>
-            <li><button>2 Thousand Elements</button></li>
-            <li><button>4.29 Billion Elements</button></li>
-            <li><button>999 Million Elements</button></li>
+            <li><button class="question-button">Probably a lot</button></li>
+            <li><button class="question-button">2 Thousand Elements</button></li>
+            <li><button class="question-button">4.29 Billion Elements</button></li>
+            <li><button class="question-button">999 Million Elements</button></li>
         </section>
     </section>
+    </section>
+</main>
     <script src="./Develop/script.js"></script>
 </body>
 </html>
