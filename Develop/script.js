@@ -36,7 +36,7 @@ const questionOneButtons = document.querySelectorAll('.question-one-button'); //
 const questionTwoButtons = document.querySelectorAll('.question-two-button');
 const questionThreeButtons = document.querySelectorAll('.question-three-button');
 
-function changeQuestion(currentQuestion) {
+function changeQuestion(currentQuestion, array) {
     let randomIndex = Math.floor(Math.random() * array.length);
     let randomQuestion = array[randomIndex];
     randomQuestion.style.display = 'block';
@@ -44,25 +44,49 @@ function changeQuestion(currentQuestion) {
     const [questionArray] = array.splice(randomIndex, 1);
     questionArray;
     console.log(array)
+
+    if (array.length === 0) {
+        endGame();
+    }
 }
 
 questionOneButtons.forEach(function(questionOneButtons) {
-    questionOneButtons.addEventListener('click', function() {
-        changeQuestion(questionOne);
-    }, {once : true});
+    if (array.length === 0) {
+        endGame();
+    } else {
+        questionOneButtons.addEventListener('click', function() {
+            changeQuestion(questionOne, array);
+        }, {once: true});
+    }
 });
 
+
 questionTwoButtons.forEach(function(questionTwoButtons) {
-    questionTwoButtons.addEventListener('click', function() {
-        changeQuestion(questionTwo);
-    }, {once : true});
+    if (array.length === 0) {
+        endGame();
+    } else {
+        questionTwoButtons.addEventListener('click', function() {
+            changeQuestion(questionTwo, array);
+        }, {once : true});
+    }
 });
 
 questionThreeButtons.forEach(function(questionThreeButtons) {
-    questionThreeButtons.addEventListener('click', function() {
-        changeQuestion(questionThree);
-    }, {once : true});
+    if (array.length === 0) {
+        endGame();
+    } else {
+        questionThreeButtons.addEventListener('click', function() {
+            changeQuestion(questionThree, array);
+        }, {once : true});
+    }
 });
 
+//Ending screen
+const endScreen = document.querySelector('.end-screen')
 
-
+function endGame () {
+endScreen.style.display = 'block';
+questionOne.style.display = 'none';
+questionTwo.style.display = 'none';
+questionThree.style.display = 'none';
+}
