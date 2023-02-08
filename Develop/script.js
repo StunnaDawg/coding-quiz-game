@@ -144,9 +144,9 @@ const form = document.querySelector("form");
 form.addEventListener("submit", function(event) {
   event.preventDefault();
   const userName = form.elements.userName.value;
-  let Storedscore = JSON.parse(localStorage.getItem("scores")) || [];
+  let Storedscore = JSON.parse(localStorage.getItem("score")) || [];
   Storedscore.push({ name: userName, score: sec });
-  localStorage.setItem("scores", JSON.stringify(Storedscore));
+  localStorage.setItem("score", JSON.stringify(Storedscore));
 });
 
 
