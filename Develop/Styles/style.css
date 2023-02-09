@@ -2,6 +2,32 @@
     display: block;
 }
 
+button {
+    color:white;
+    background-color: blueviolet;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.header {
+    display: flex;
+    justify-content: space-evenly
+}
+
+.heading {
+    display: flex;
+    justify-content: space-between;
+}
+
+ul {
+    list-style: none;
+}
+
 .question {
     display: none;
 }
@@ -35,5 +61,9 @@
 }
 
 .leaderboard {
+    display: none;
+}
+
+.high-scores {
     display: none;
 }

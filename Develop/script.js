@@ -154,21 +154,52 @@ const form = document.querySelector("form");
 form.addEventListener("submit", function(event) {
 
   event.preventDefault();
-  //if
   const userName = form.elements.userName.value;
   let Storedscore = JSON.parse(localStorage.getItem("score")) || [];
   Storedscore.push({ name: userName, score: sec });
   localStorage.setItem("score", JSON.stringify(Storedscore));
   endScreen.style.display = 'none';
   leaderBoard.style.display = 'block';
+  highScore.style.display = 'block'
+  renderLeaderboard();
 });
 
 
 //-----------------------------------------------------------//
 
+//Leaderboard 
+
+const renderLeaderboard = function() {
+    const Storedscore = JSON.parse(localStorage.getItem("score")) || [];
+  
+    // sort the stored scores in descending order by score
+    Storedscore.sort(function(a, b) {
+      return b.score - a.score;
+    });
+  
+    // only display the top 5 scores
+    const top5Scores = Storedscore.slice(0, 5);
+  
+    // clear the leaderboard
+    leaderBoard.innerHTML = "";
+  
+    // render the top 5 scores in the leaderboard
+    const list = document.createElement("ul");
+    for (let i = 0; i < top5Scores.length; i++) {
+      const score = top5Scores[i];
+      const item = document.createElement("li");
+      item.innerHTML = score.name + ": " + score.score;
+      list.appendChild(item);
+    }
+  
+    leaderBoard.appendChild(list);
+  };
+  
+
 //Play again button
 
-const leaderBoard = document.querySelector('.leaderboard')
+const leaderBoard = document.querySelector('.leaderboard');
+const highScore = document.querySelector('.high-scores');
 const playAgain = document.querySelector('#play-again');
 
 playAgain.addEventListener("click", function(){
