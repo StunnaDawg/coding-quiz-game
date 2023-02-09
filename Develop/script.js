@@ -25,6 +25,7 @@ button.addEventListener('click', function() {
 
 
 
+
 var timer;
 var sec = 60;
     function startTimer(){
@@ -35,8 +36,11 @@ var sec = 60;
                 } else {
                 document.getElementById('timer').innerHTML='00:'+sec;
                 }
-            if (sec < 0 || array.length === 0) {
+            if (sec === 0 || array.length === 0) {
              clearInterval(timer);
+             if (sec === 0) {
+                endGame();
+              }
             }
             sec--;
         }, 1000);
@@ -144,7 +148,7 @@ questionSixButtons.forEach(function(questionSixButtons) {
 const endScreen = document.querySelector('.end-screen')
 
 function endGame () {
-    if (array.length === 0) {
+    if (array.length === 0 || sec === 0) {
 endScreen.style.display = 'flex';
 questionOne.style.display = 'none';
 questionTwo.style.display = 'none';

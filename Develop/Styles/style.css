@@ -15,6 +15,7 @@ button {
     color:white;
     background-color: blueviolet;
     cursor: pointer;
+    gap: 3em;
 }
 .high-score-button{
     background-color: transparent;
@@ -48,6 +49,7 @@ button {
 
 .questions {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
