@@ -9,14 +9,17 @@ const questionFive = document.querySelector('.question-five')
 const questionSix = document.querySelector('.question-six')
 const timerDisplay = document.querySelector('#timer')
 
+//Starting event
+
 const array = [questionOne, questionTwo, questionThree, questionFour, questionFive, questionSix]
 
 button.addEventListener('click', function() {
-    startTimer();
     mainSection.style.display = "none";
+    startTimer();
     changeQuestion(mainSection, array)
 })
 
+//-----------------------------------------------------------//
 
 //timer function
 
@@ -26,7 +29,7 @@ var timer;
 var sec = 60;
     function startTimer(){
         var timer = setInterval(function(){
-            sec--;
+            
             if (sec < 10) {
                 document.getElementById('timer').innerHTML='00:0'+sec;
                 } else {
@@ -35,6 +38,7 @@ var sec = 60;
             if (sec < 0 || array.length === 0) {
              clearInterval(timer);
             }
+            sec--;
         }, 1000);
   return sec;}
     function decrementTimer() {
@@ -53,7 +57,7 @@ var sec = 60;
       });
  //made into a variable so I am able to call the subtractTime function when the buttons are clicked
 
-
+//-----------------------------------------------------------//
 
 // This section makes sure the questions cycle through each other
 const wrongAnswer = document.querySelector(".wrong-answer");
@@ -67,16 +71,18 @@ const questionSixButtons = document.querySelectorAll('.question-six-button')
 
 
     function changeQuestion(lastQuestion, array) {
+        if (array.length === 0) {
+            endGame();
+        }
         let randomIndex = Math.floor(Math.random() * array.length);
         let randomQuestion = array[randomIndex];
+        if (array.length > 0) {
         randomQuestion.style.display = 'block';
+        }
         lastQuestion.style.display = 'none';
         array.splice(randomIndex, 1);
         console.log(array)
 
-        if (array.length === 0) {
-            endGame();
-        }
     }
 
 questionOneButtons.forEach(function(questionOneButtons) {
@@ -122,6 +128,8 @@ questionSixButtons.forEach(function(questionSixButtons) {
         }
 )});
 
+//-----------------------------------------------------------//
+
 //Ending screen
 const endScreen = document.querySelector('.end-screen')
 
@@ -138,15 +146,31 @@ document.querySelector('#finalScore').innerHTML =`Your final score is: ${sec}`;
     }
 }
 
-//store the user score in local storage
+//-----------------------------------------------------------//
+
+//Scores stored in local storage
 
 const form = document.querySelector("form");
 form.addEventListener("submit", function(event) {
+
   event.preventDefault();
+  //if
   const userName = form.elements.userName.value;
   let Storedscore = JSON.parse(localStorage.getItem("score")) || [];
   Storedscore.push({ name: userName, score: sec });
   localStorage.setItem("score", JSON.stringify(Storedscore));
+  endScreen.style.display = 'none';
+  leaderBoard.style.display = 'block';
 });
 
 
+//-----------------------------------------------------------//
+
+//Play again button
+
+const leaderBoard = document.querySelector('.leaderboard')
+const playAgain = document.querySelector('#play-again');
+
+playAgain.addEventListener("click", function(){
+
+})
