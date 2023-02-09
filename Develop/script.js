@@ -168,10 +168,13 @@ const form = document.querySelector("form");
 form.addEventListener("submit", function(event) {
 
   event.preventDefault();
-  //if (form === "") {
-    //alert('please enter valid user name')
-  //} else {
+
   const userName = form.elements.userName.value;
+  if (!userName) {
+    alert("Please enter a name");
+    return;
+  }
+
   let Storedscore = JSON.parse(localStorage.getItem("score")) || [];
   Storedscore.push({ name: userName, score: sec });
   localStorage.setItem("score", JSON.stringify(Storedscore));
@@ -179,10 +182,7 @@ form.addEventListener("submit", function(event) {
   leaderBoard.style.display = 'flex';
   highScore.style.display = 'flex';
   renderLeaderboard(); 
-//}
 });
-
-
 //-----------------------------------------------------------//
 
 //Leaderboard 
