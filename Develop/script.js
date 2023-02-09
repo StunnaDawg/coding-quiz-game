@@ -68,11 +68,11 @@ const questionFourButtons = document.querySelectorAll('.question-four-button')
 const questionFiveButtons = document.querySelectorAll('.question-five-button')
 const questionSixButtons = document.querySelectorAll('.question-six-button')
 
-
+let endButtonClicked = false;
 
     function changeQuestion(lastQuestion, array) {
-        if (array.length === 0) {
-            endGame();
+        if (array.length === 0 && endButtonClicked) {
+                endGame();
         }
         let randomIndex = Math.floor(Math.random() * array.length);
         let randomQuestion = array[randomIndex];
@@ -85,7 +85,16 @@ const questionSixButtons = document.querySelectorAll('.question-six-button')
         console.log(array)
 
     }
-
+/////////////////////////////////////////////
+    function onEndbuttonClick () {
+        endButtonClicked = true
+    }
+    
+    let endButtons = document.querySelectorAll(".end-button");
+    endButtons.forEach(function(button) {
+        button.addEventListener("click", onEndbuttonClick);
+    });
+///////////////////////////////////////////////
 questionOneButtons.forEach(function(questionOneButtons) {
         console.log(array)
         questionOneButtons.addEventListener('click', function() {
@@ -155,6 +164,9 @@ const form = document.querySelector("form");
 form.addEventListener("submit", function(event) {
 
   event.preventDefault();
+  //if (form === "") {
+    //alert('please enter valid user name')
+  //} else {
   const userName = form.elements.userName.value;
   let Storedscore = JSON.parse(localStorage.getItem("score")) || [];
   Storedscore.push({ name: userName, score: sec });
@@ -162,7 +174,8 @@ form.addEventListener("submit", function(event) {
   endScreen.style.display = 'none';
   leaderBoard.style.display = 'flex';
   highScore.style.display = 'flex';
-  renderLeaderboard();
+  renderLeaderboard(); 
+//}
 });
 
 
