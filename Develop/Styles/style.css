@@ -2,27 +2,84 @@
     display: block;
 }
 
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+    color: black;
+}
+
 button {
     color:white;
     background-color: blueviolet;
+    cursor: pointer;
+}
+.high-score-button{
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
 }
 
-.container {
+.header {
+    margin: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 100%;
+}
+
+.main-section {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.header {
+#start {
     display: flex;
-    justify-content: space-evenly
+    justify-content: center;
+    align-items: center;
 }
 
-.heading {
+.questions {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
 }
+
+.question button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.end-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.high-scores {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#play-again {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 
 ul {
     list-style: none;

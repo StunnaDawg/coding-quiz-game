@@ -77,7 +77,8 @@ const questionSixButtons = document.querySelectorAll('.question-six-button')
         let randomIndex = Math.floor(Math.random() * array.length);
         let randomQuestion = array[randomIndex];
         if (array.length > 0) {
-        randomQuestion.style.display = 'block';
+        randomQuestion.style.display = 'flex';
+        randomQuestion.style.flexDirection = 'column';
         }
         lastQuestion.style.display = 'none';
         array.splice(randomIndex, 1);
@@ -135,7 +136,7 @@ const endScreen = document.querySelector('.end-screen')
 
 function endGame () {
     if (array.length === 0) {
-endScreen.style.display = 'block';
+endScreen.style.display = 'flex';
 questionOne.style.display = 'none';
 questionTwo.style.display = 'none';
 questionThree.style.display = 'none';
@@ -159,8 +160,8 @@ form.addEventListener("submit", function(event) {
   Storedscore.push({ name: userName, score: sec });
   localStorage.setItem("score", JSON.stringify(Storedscore));
   endScreen.style.display = 'none';
-  leaderBoard.style.display = 'block';
-  highScore.style.display = 'block'
+  leaderBoard.style.display = 'flex';
+  highScore.style.display = 'flex';
   renderLeaderboard();
 });
 
@@ -204,4 +205,20 @@ const playAgain = document.querySelector('#play-again');
 
 playAgain.addEventListener("click", function(){
 
+})
+
+const highScoreScreen = document.querySelector('.high-score-screen')
+
+highScoreScreen.addEventListener("click", function(){
+    mainSection.style.display = 'none';
+    endScreen.style.display = 'none';
+    questionOne.style.display = 'none';
+    questionTwo.style.display = 'none';
+    questionThree.style.display = 'none';
+    questionFour.style.display = 'none';
+    questionFive.style.display = 'none';
+    questionSix.style.display = 'none';
+    highScore.style.display = 'flex';
+    leaderBoard.style.display = 'flex';
+    renderLeaderboard();
 })
