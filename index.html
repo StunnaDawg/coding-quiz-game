@@ -10,9 +10,9 @@
 <body>
     <section class="container">
         <header class="header">
-            <h3 class="high-score-screen"><a href="#">High Scores</a></h3>
+            <h3 class="high-score-screen"><a href="#">View High Scores</a></h3>
            
-            <span id="timer"><h3>Time Left</h3>00:60 </span>
+            <h3>Time Left</h3><span id="timer">00:60 </span>
         </header>
 <main>  
     <section class="main-section">
@@ -28,7 +28,7 @@
         <section class="question-one">
             <h1>How do you log 'hello world' to the console in JavaScript?</h1>
             <ul>
-                <li><button class="question-one-button end-button">console.log('hello world')</button></li>
+                <li><button class="question-one-button end-button right-answer">console.log('hello world')</button></li>
                 <li><button class="question-one-button wrong-answer end-button">print('hello world')</button></li>
                 <li><button class="question-one-button wrong-answer end-button">printf("hello world")</button></li>
                 <li><button class="question-one-button wrong-answer end-button">System.out.println("hello world");</button></li>
@@ -38,7 +38,7 @@
             <h1>What does CSS stand for?</h1>
             <ul>
                 <li><button class="question-two-button wrong-answer end-button">Cat Sipping Soup</button></li>
-                <li><button class="question-two-button end-button">Cascading Style Sheet</button></li>
+                <li><button class="question-two-button end-button right-answer">Cascading Style Sheet</button></li>
                 <li><button class="question-two-button wrong-answer end-button">Cows Spicy Salsa</button></li>
                 <li><button class="question-two-button wrong-answer end-button">Crocodile Stream Sniping</button></li>
             </ul>
@@ -48,7 +48,7 @@
             <ul>
                 <li><button class="question-three-button wrong-answer end-button">Probably a lot</button></li>
                 <li><button class="question-three-button wrong-answer end-button">2 Thousand Elements</button></li>
-                <li><button class="question-three-button end-button">4.29 Billion Elements</button></li>
+                <li><button class="question-three-button end-button right-answer">4.29 Billion Elements</button></li>
                 <li><button class="question-three-button wrong-answer end-button">999 Million Elements</button></li>
             </ul>
         </section>
@@ -57,7 +57,7 @@
             <ul>
                 <li><button class="question-four-button wrong-answer end-button">feeding the cat</button></li>
                 <li><button class="question-four-button wrong-answer end-button">the structure of a webpage</button></li>
-                <li><button class="question-four-button end-button">Styling a webpage</button></li>
+                <li><button class="question-four-button end-button right-answer">Styling a webpage</button></li>
                 <li><button class="question-four-button wrong-answer end-button">making the webpage do things</button></li>
             </ul>
         </section>
@@ -67,18 +67,24 @@
                 <li><button class="question-five-button wrong-answer end-button">A butler</button></li>
                 <li><button class="question-five-button wrong-answer end-button">A hedgehog</button></li>
                 <li><button class="question-five-button wrong-answer end-button">A goomba</button></li>
-                <li><button class="question-five-button end-button">A plumber</button></li>
+                <li><button class="question-five-button end-button right-answer">A plumber</button></li>
             </ul>
         </section>
         <section class="question-six">
             <h1>When was JavaScript created</h1>
             <ul>
-                <li><button class="question-six-button end-button">1995</button></li>
+                <li><button class="question-six-button end-button right-answer">1995</button></li>
                 <li><button class="question-six-button wrong-answer end-button">2020</button></li>
                 <li><button class="question-six-button wrong-answer end-button">2000</button></li>
                 <li><button class="question-six-button wrong-answer end-button">1959</button></li>
             </ul>
         </section>
+
+        <section>
+            <h4 class="wrong">Wrong!</h4>
+            <h4 class="correct-answer">Correct!</h4>
+        </section>
+
     </section>
     <section class="end-screen">
         <h3 id="finalScore"></h3>

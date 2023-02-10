@@ -126,3 +126,11 @@ ul {
 .high-scores {
     display: none;
 }
+
+.wrong {
+    display: none;
+}
+
+.correct-answer {
+    display: none;
+}

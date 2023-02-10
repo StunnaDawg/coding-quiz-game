@@ -8,7 +8,8 @@ const questionFour = document.querySelector('.question-four')
 const questionFive = document.querySelector('.question-five')
 const questionSix = document.querySelector('.question-six')
 const timerDisplay = document.querySelector('#timer')
-
+const wrong = document.querySelector('.wrong')
+const correctAnswer = document.querySelector('.correct-answer')
 //Starting event
 
 const array = [questionOne, questionTwo, questionThree, questionFour, questionFive, questionSix]
@@ -56,9 +57,13 @@ var sec = 60;
 
       document.querySelectorAll(".wrong-answer").forEach(function(element) {
         element.addEventListener("click", function() {
+            wrong.style.display = 'flex'
           decrementTimer();
+          setTimeout(function() {
+            wrong.style.display = 'none';
+        }, 800);
+    });
         });
-      });
  //made into a variable so I am able to call the subtractTime function when the buttons are clicked
 
 //-----------------------------------------------------------//
@@ -87,7 +92,6 @@ let endButtonClicked = false;
         lastQuestion.style.display = 'none';
         array.splice(randomIndex, 1);
         console.log(array)
-
     }
 /////////////////////////////////////////////
     function onEndbuttonClick () {
@@ -141,6 +145,18 @@ questionSixButtons.forEach(function(questionSixButtons) {
             changeQuestion(questionSix, array);
         }
 )});
+
+const rightAnswer = document.querySelector('right-answer')
+document.querySelectorAll(".right-answer").forEach(function(element) {
+    element.addEventListener("click", function() {
+        correctAnswer.style.display = 'flex'
+      setTimeout(function() {
+        correctAnswer.style.display = 'none';
+    }, 800);
+     } 
+    )})
+
+
 
 //-----------------------------------------------------------//
 
