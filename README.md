@@ -20,4 +20,4 @@ https://stunnadawg.github.io/coding-quiz-game/index.html
 
 ## Screenshot
 
-![Alt text](./Develop/images/127.0.0.1_5500_index.html.png "Screenshot")
+![127 0 0 1_5500_index html (1)](https://user-images.githubusercontent.com/117373824/217988876-3f20df60-e5a2-4390-8a26-978826db5c7c.png)
