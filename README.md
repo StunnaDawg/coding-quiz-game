@@ -8,7 +8,7 @@ During the process of the building this application, I sharpened my skills on ut
 ## Installation 
 You will need a browser installed on your local machine to run this application. Follow these steps:
 
-1. Clone the reopsitory with the follwoing command: ‘git clone https://github.com/StunnaDawg/Password-Generator
+1. Clone the reopsitory with the follwoing command: ‘git clone https://github.com/StunnaDawg/coding-quiz-gane
 
 2. CD into the repository on your local machine
 
