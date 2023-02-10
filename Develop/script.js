@@ -1,4 +1,4 @@
-//------ start button -------
+// Document Query selectors
 const mainSection = document.querySelector('.main-section')
 const button = document.querySelector('#start')
 const questionOne = document.querySelector('.question-one')
@@ -10,22 +10,26 @@ const questionSix = document.querySelector('.question-six')
 const timerDisplay = document.querySelector('#timer')
 const wrong = document.querySelector('.wrong')
 const correctAnswer = document.querySelector('.correct-answer')
-//Starting event
+const loading = document.querySelector('.loading')
+
+//Questions stored in this array
 
 const array = [questionOne, questionTwo, questionThree, questionFour, questionFive, questionSix]
 
+
+//This event listener starts the quiz
+//I added a laoding section because there is a delay with timer
 button.addEventListener('click', function() {
     mainSection.style.display = "none";
+    loading.style.display = "flex"
     startTimer();
-    changeQuestion(mainSection, array)
+    setTimeout(function() {
+        changeQuestion(mainSection, array)
+    }, 1000);
 })
 
-//-----------------------------------------------------------//
-
-//timer function
-
-
-
+//The timer function countsdown when the star button is clicked
+//When a wrong question is clicked 5 seconds is taken off the timer
 
 var timer;
 var sec = 60;
@@ -64,13 +68,13 @@ var sec = 60;
         }, 800);
     });
         });
- //made into a variable so I am able to call the subtractTime function when the buttons are clicked
 
-//-----------------------------------------------------------//
 
 // This section makes sure the questions cycle through each other
+// Removes items within the array so that the game ends when the array is empty
+
 const wrongAnswer = document.querySelector(".wrong-answer");
-const questionOneButtons = document.querySelectorAll('.question-one-button'); // all selector chooses every button
+const questionOneButtons = document.querySelectorAll('.question-one-button'); 
 const questionTwoButtons = document.querySelectorAll('.question-two-button');
 const questionThreeButtons = document.querySelectorAll('.question-three-button');
 const questionFourButtons = document.querySelectorAll('.question-four-button')
@@ -90,10 +94,14 @@ let endButtonClicked = false;
         randomQuestion.style.flexDirection = 'column';
         }
         lastQuestion.style.display = 'none';
+        loading.style.display = 'none'
         array.splice(randomIndex, 1);
         console.log(array)
     }
-/////////////////////////////////////////////
+
+// The end button makes SURE the endGame() function is not called until the array is 0 and the button is clicked
+// This will be overwritten if the timer is 0
+
     function onEndbuttonClick () {
         endButtonClicked = true
     }
@@ -102,7 +110,7 @@ let endButtonClicked = false;
     endButtons.forEach(function(button) {
         button.addEventListener("click", onEndbuttonClick);
     });
-///////////////////////////////////////////////
+
 questionOneButtons.forEach(function(questionOneButtons) {
         console.log(array)
         questionOneButtons.addEventListener('click', function() {
@@ -157,9 +165,6 @@ document.querySelectorAll(".right-answer").forEach(function(element) {
     )})
 
 
-
-//-----------------------------------------------------------//
-
 //Ending screen
 const endScreen = document.querySelector('.end-screen')
 
@@ -176,9 +181,7 @@ document.querySelector('#finalScore').innerHTML =`Your final score is: ${sec}`;
     }
 }
 
-//-----------------------------------------------------------//
-
-//Scores stored in local storage
+//form takes the user's score and input and stores them in local storage
 
 const form = document.querySelector("form");
 form.addEventListener("submit", function(event) {
@@ -199,25 +202,26 @@ form.addEventListener("submit", function(event) {
   highScore.style.display = 'flex';
   renderLeaderboard(); 
 });
-//-----------------------------------------------------------//
 
-//Leaderboard 
+//the leaderboard section take the top 5 scores in the local storage
+
+const leaderBoard = document.querySelector('.leaderboard');
 
 const renderLeaderboard = function() {
     const Storedscore = JSON.parse(localStorage.getItem("score")) || [];
   
-    // sort the stored scores in descending order by score
+    // sorts the stored items from highest to lowest
     Storedscore.sort(function(a, b) {
       return b.score - a.score;
     });
   
-    // only display the top 5 scores
+    // Takes those 5 scores and leaves the rest in the storage
     const top5Scores = Storedscore.slice(0, 5);
   
-    // clear the leaderboard
+    // clears the leaderboard
     leaderBoard.innerHTML = "";
   
-    // render the top 5 scores in the leaderboard
+    // creates a list of the current top 5 scores when renderLeaderboard() is called
     const list = document.createElement("ul");
     for (let i = 0; i < top5Scores.length; i++) {
       const score = top5Scores[i];
@@ -230,15 +234,10 @@ const renderLeaderboard = function() {
   };
   
 
-//Play again button
+//This section shows the highscore screen
 
-const leaderBoard = document.querySelector('.leaderboard');
 const highScore = document.querySelector('.high-scores');
 const playAgain = document.querySelector('#play-again');
-
-playAgain.addEventListener("click", function(){
-
-})
 
 const highScoreScreen = document.querySelector('.high-score-screen')
 

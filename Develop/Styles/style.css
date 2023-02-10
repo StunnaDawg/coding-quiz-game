@@ -4,11 +4,11 @@
 
 a:link {
     text-decoration: none;
+    color: white;
 }
 
 a:visited {
     text-decoration: none;
-    color: black;
 }
 
 button {
@@ -36,6 +36,13 @@ button {
 
 .main-section {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading {
+    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -80,13 +87,19 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-decoration: none;
+    background-color: aliceblue;
 }
 
 
 ul {
-    list-style: none;
+    list-style-type: nu;
 }
 
+
+ul li {
+    margin:0 0 10px 0; 
+}
 .question {
     display: none;
 }

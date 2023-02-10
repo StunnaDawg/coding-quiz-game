@@ -12,7 +12,7 @@
         <header class="header">
             <h3 class="high-score-screen"><a href="#">View High Scores</a></h3>
            
-            <h3>Time Left</h3><span id="timer">00:60 </span>
+            <h3 id="time-left">Time Left: <span id="timer">00:60</span></h3>
         </header>
 <main>  
     <section class="main-section">
@@ -24,6 +24,11 @@
             </p>
             <button id="start">Start</button>
         </section>
+
+        <section class="loading">
+            <h2>Loading...</h2>
+        </section>
+
     <section class="questions">
         <section class="question-one">
             <h1>How do you log 'hello world' to the console in JavaScript?</h1>
@@ -95,7 +100,7 @@
         </form>
     </section>
     <section class="high-scores">
-        <h3>High Scores</h3>
+        <h3>Top 5 Scores</h3>
         <div class="leaderboard"></div>
         <button id="play-again"><a href="index.html">Play Again!</a></button>
     </section>
